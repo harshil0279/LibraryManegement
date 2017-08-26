@@ -1,158 +1,134 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Login Page</title>
 
-<style>
-form {
-    border: 3px solid #f1f1f1;
-}
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous">
 
+<link rel="stylesheet" href="CSS/login.css" />
 
-   p.dashed {border-style: dashed; border-color:lightgrey;}
-
-body
-{
-
-  margin: 350px;	
-   margin-top:0px;
-   background-color: lightblue;
-}
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-
-.imgcontainer {
-    height:150px;
-	width:200px;
-    text-align: center;
-    
-}
-
-.box
-{
-		
-      margin-left:100px;
-      margin-top:70px;
-	  width:400px;
-	  background-color:white;
-
-}
-.label
-{
-
-    margin-top:60px;
-
-}
-.text{
-
-    margin-left:70px;
-}
-
-.container {
-    padding: 16px;
-	margin:auto;
-	background-color:none;
-
-
-}
-
-.createAccountButton
-{
-
-    font-size: 150%;
-	 border-radius:    8px;
-
-
-}
-.avatar
-{
-   height:150px;
-	width:150px;
-	margin-left:200px;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-	
-	#bluel{
-	   
-	   color: blue;
-	
-	}
-}
-</style>
 </head>
 <body>
 
-<body>
+	<div id="boss">
+		<div class="container row maincontainer" id="header">
+
+			<h2 class="form-signin-heading text-center">Please sign in</h2>
+
+		</div>
+
+		<div class="container row maincontainer">
+
+			<div class="col-sm-6 subcontainer" id="socialcontainer">
+
+				<div class="row">
+					<h4 class="form-signin-heading text-center">Use Other Accounts</h4>
+				</div>
 
 
+				<p class="row">
+					You can also sign in using <br /> Facebook account or <br />
+					Google account.
+				</p>
 
-<form action="	" class="box">
- 
 
-  <div class="container">
-     <h2>Create an account</h2><hr><br>
-    <label><b>Enter Your Email Adderss</b></label>
-    <input type="text" name="uname" required><br><br>	
+				<p class="row">
+					<button type="button" class="btn bg-inverse text-white social"
+						id="facebook">Login with Facebook</button>
+				<p>
+				<p class="row">
+					<button type="button" class="btn btn-primary social">Login
+						with Google</button>
+				</p>
 
-    <label ><b>Password</b></label>
-    <input type="password" name="psw" required><br><br>
-	
-	<label><b>Confirm Password</b></label>
-    <input type="password"  name="psw" required>
-        <p class="dashed">By clicking on the "create an account button below, you certify that you have read and agree to our terms 
-	of use  and <span id="bluel">privacy policy</span></p>
-    <button type="submit" class="createAccountButton">Create an account</button>
-	<p class= "text"> Already have an account? <span class="blue">Sign in</span></p> 	
-  
-  </div>
+			</div>
 
-  
-</form>
+			<div class="col-sm-6 subcontainer">
 
-</body>
+				<form class="form-signin" method="post" action="LoginController">				
+
+					
+
+					<div class="form-group">
+						<label for="inputEmail">Email address</label> <input type="email"
+							name="email" id="inputEmail" class="form-control"
+							placeholder="Email address" required autofocus>
+					</div>
+
+					<div class="form-group">
+						<label for="inputPassword">Password</label> <input type="password"
+							name="password" id="inputPassword" class="form-control"
+							placeholder="Password" required>
+					</div>
+
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+						in</button>
+
+					<div class="row">
+						<div class="col">
+							<a href="signup.jsp">Sign Up</a>
+						</div>
+						<div class="col-sm-6 text-right">
+							<a href="forgot-password.jsp">Forgot Password</a>
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- /container -->
+
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+		crossorigin="anonymous"></script>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+		crossorigin="anonymous"></script>
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+		crossorigin="anonymous"></script>
+
+	<c:choose>
+
+		<c:when test="${param.message == 'INVALID'}">
+			<script>
+				$('#warning-message').toggleClass('hidden');
+			</script>
+		</c:when>
+
+		<c:when test="${param.message == 'LOGOUT'}">
+			<script>
+				$('#logout-message').toggleClass('hidden');
+			</script>
+		</c:when>
+
+		<c:when test="${param.message == 'NOACCESS'}">
+			<script>
+				$('#authorization-message').toggleClass('hidden');
+			</script>
+		</c:when>
+
+
+	</c:choose>
 
 </body>
 </html>
