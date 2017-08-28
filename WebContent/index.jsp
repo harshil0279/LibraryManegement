@@ -3,132 +3,131 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Login Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Library Login</title>
+<script>
+function validateForm() 
+{
+    var x = document.forms["myForm"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+	{
+        alert("Not a valid e-mail address");
+        return false;
+    }
+    
+    var passw=  /^[A-Za-z]\w{7,14}$/;  
+    if( document.forms["myForm"]["password"].value.match(passw))   
+    {   
+    alert('Correct, try another...')  
+    return true;  
+    }  
+    else  
+    {   
+    alert('Wrong...!')  
+    return false;  
+    }  
+}
 
-<!-- Bootstrap CSS -->
+
+</script>
+<!-- Bootstrap References -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" href="CSS/login.css" />
+<!-- JQuery References  -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+	integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+	integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+	crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="CSS/login.css" />
 
 </head>
 <body>
+	<!-- Main Script  -->
+	<div class="container ">
+		<div class="container justify-content-center col-6 supercontainer"
+			align="center">
 
-	<div id="boss">
-		<div class="container row maincontainer" id="header">
-
-			<h2 class="form-signin-heading text-center">Please sign in</h2>
-
-		</div>
-
-		<div class="container row maincontainer">
-
-			<div class="col-sm-6 subcontainer" id="socialcontainer">
-
-				<div class="row">
-					<h4 class="form-signin-heading text-center">Use Other Accounts</h4>
+			<div class="row">
+				<div class="col classpadding">
+					<h3>Sign In</h3>
+					<hr class="hrmargin" />
 				</div>
-
-
-				<p class="row">
-					You can also sign in using <br /> Facebook account or <br />
-					Google account.
-				</p>
-
-
-				<p class="row">
-					<button type="button" class="btn bg-inverse text-white social"
-						id="facebook">Login with Facebook</button>
-				<p>
-				<p class="row">
-					<button type="button" class="btn btn-primary social">Login
-						with Google</button>
-				</p>
-
 			</div>
 
-			<div class="col-sm-6 subcontainer">
-
-				<form class="form-signin" method="post" action="LoginController">				
-
-					
-
-					<div class="form-group">
-						<label for="inputEmail">Email address</label> <input type="email"
-							name="email" id="inputEmail" class="form-control"
-							placeholder="Email address" required autofocus>
-					</div>
-
-					<div class="form-group">
-						<label for="inputPassword">Password</label> <input type="password"
-							name="password" id="inputPassword" class="form-control"
-							placeholder="Password" required>
-					</div>
-
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
-						in</button>
-
+			<div class="row">
+				<div class="col-sm-6 subcontainer classpadding">
 					<div class="row">
 						<div class="col">
-							<a href="signup.jsp">Sign Up</a>
-						</div>
-						<div class="col-sm-6 text-right">
-							<a href="forgot-password.jsp">Forgot Password</a>
+							<h4 id="faded">Use other accounts</h4>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col hidden-sm-down">
+							<p>you can also sign in using your</p>
+							<p>Facebook Account or Google Account</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col col-12">
+							<button type="submit"
+								class="btn btn-default roundbutton facebook bigbutton">Log
+								in with Facebook</button>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col col-12">
+							<button type="submit"
+								class="btn btn-primary roundbutton bigbutton">Log in
+								with Google</button>
+						</div>
+					</div>
+				</div>
 
-				</form>
-
+				<div class="col-sm-6 subcontainer sideborder classpadding">
+					<div class="row">
+						<div class="col">
+							<h4 id="faded">Use your accounts</h4>
+							<br />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col padding">
+							<form name="myForm" class="formpadding" onsubmit="return validateForm();"
+							                           method="post">
+								<input type="email" class="form-control" class="form-control"
+									id="email" placeholder="Enter email" name="email"> 
+								<input type="password" class="form-control" id="password"
+									placeholder="Enter password" name="password" >
+								<button type="submit" class="btn btn-success  btn-lg btn-block "
+									id="submitButton">Submit</button>
+								<br>
+								<div id="pass">
+									<a href="#">Forgot password?</a>
+								</div>
+								<div id="register">
+									<a href="#">Register!</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
-
 		</div>
-
 	</div>
-	<!-- /container -->
-
-	<!-- jQuery first, then Tether, then Bootstrap JS. -->
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-		crossorigin="anonymous"></script>
-
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-		crossorigin="anonymous"></script>
-
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-		crossorigin="anonymous"></script>
-
-	<c:choose>
-
-		<c:when test="${param.message == 'INVALID'}">
-			<script>
-				$('#warning-message').toggleClass('hidden');
-			</script>
-		</c:when>
-
-		<c:when test="${param.message == 'LOGOUT'}">
-			<script>
-				$('#logout-message').toggleClass('hidden');
-			</script>
-		</c:when>
-
-		<c:when test="${param.message == 'NOACCESS'}">
-			<script>
-				$('#authorization-message').toggleClass('hidden');
-			</script>
-		</c:when>
-
-
-	</c:choose>
 
 </body>
 </html>

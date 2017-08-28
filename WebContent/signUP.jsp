@@ -1,164 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="UTF-8"%>
 <html>
+<!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-
-<style>
-form {
-    border: 3px solid #f1f1f1;
-}
-
-
-   p.dashed {border-style: dashed; border-color:lightgrey;}
-
-body
-{
-
-  margin: 350px;	
-   margin-top:0px;
-   background-color: lightblue;
-}
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-
-.imgcontainer {
-    height:150px;
-	width:200px;
-    text-align: center;
-    
-}
-
-.box
-{
-		
-      margin-left:100px;
-      margin-top:70px;
-	  width:400px;
-	  background-color:white;
-
-}
-.label
-{
-
-    margin-top:60px;
-
-}
-.text{
-
-    margin-left:70px;
-}
-
-.container {
-    padding: 16px;
-	margin:auto;
-	background-color:none;
-
-
-}
-
-.createAccountButton
-{
-
-    font-size: 150%;
-	 border-radius:    8px;
-
-
-}
-.avatar
-{
-   height:150px;
-	width:150px;
-	margin-left:200px;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-	
-	#bluel{
-	   
-	   color: blue;
-	
-	}
-}
-</style>
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-	crossorigin="anonymous">
-</head>
-<body>
-
-<body>
-
-
-
-<form action="	" class="box">
+<head>
+  <title>Registration page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  
+  .container{background-color:white;};
  
-
-  <div class="container">
-     <h2>Create an account</h2><hr><br>
-    <label><b>Enter Your Email Adderss</b></label>
-    <input type="text" name="uname" required><br><br>	
-
-    <label ><b>Password</b></label>
-    <input type="password" name="psw" required><br><br>
-	
-	<label><b>Confirm Password</b></label>
-    <input type="password"  name="psw" required>
-        <p class="dashed">By clicking on the "create an account button below, you certify that you have read and agree to our terms 
-	of use  and <span id="bluel">privacy policy</span></p>
-    <button type="submit" class="createAccountButton">Create an account</button>
-	<p class= "text"> Already have an account? <span class="blue">Sign in</span></p> 	
+  #signin{background-color:#43af43};
   
-  </div>
-
-  
-</form>
-
-</body>
-
-</body>
+  </style>
+</head>
+<body style=" background-color:rgba(79, 222, 222, 0.72)">
+<div class="container">
+  <h2>Create an Account</h2>
+  <form action="" name="login" method="">
+	  <div class="form-group">
+	  <label for="fullname">Enter your full name</label>
+	  <input type="text" id="fullname" class="form-control" placeholder="Enter your full name">
+	  </div>
+	  <div class="form-group">
+	      <label for="gender">Gender</label>
+	      <div class="row">
+		      <div class="col-md-6">
+		      <div class="radio">
+			  <label><input type="radio" name="optradio">Male</label>
+			  </div>
+		      </div>
+			  <div class="col-md-6">
+			  <div class="radio">
+			  <label><input type="radio" name="optradio">Female</label>
+		  </div>
+     </div>
+		   <div class="form-group">
+		  <label for="fullname">Enter your mobileNo</label>
+		  <input type="text" id="fullname" class="form-control" placeholder="Enter your mobile number">
+		  </div>
+	    <div class="form-group">
+	      <label for="email" >Enter your email</label><br>
+	      <input type="email" id="email" class="form-control" placeholder="Enter email" name="email">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Enter your Password:</label><br>
+	      <input id="password" type="password" class="form-control" placeholder="Enter password" name="pwd">
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Confirm Password:</label><br>
+	      <input id=" confirm_password" type="password" class="form-control"  placeholder="Enter password" name="pwd">
+	    </div>
+	    <div class="form-group">
+	   <p style="border-style: dotted;margin:0;padding:10px">By Clicking On the "Create an account button" bellow, yoy certify that you have            read and agree to our <a href="">terms of use</a> and <a href="">privacy policy</a></p>
+	    
+	    <br><button class="form-control" style="color:white;background-color:#43af43" id="signin" class="btn">Sign in</button>
+	      <p style:"text-align:center">Create an account?<a herf="Sign in.">Sign in.</a></p>
+	    
+	    </div>
+  </form>
+ </div>
+ </body>
 </html>

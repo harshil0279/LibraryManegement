@@ -1,7 +1,12 @@
 body {
-	background-color: #E8E8E8;
+	background-color: white;
 }
-
+.main-container
+{
+	background-color: green;
+	
+	
+}
 .hrmargin{
 	margin: 20px;
 	color: lightgrey;
@@ -64,11 +69,4 @@ body {
 
 .roundbutton {
 	border-radius: 2px;
-}
-
-#submitButton
-{
-   margin-top:20px;
-   //width:280px;	
-}
-}
+}	
