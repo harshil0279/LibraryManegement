@@ -5,33 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Library Login</title>
-<script>
-function validateForm() 
-{
-    var x = document.forms["myForm"]["email"].value;
-    var atpos = x.indexOf("@");
-    var dotpos = x.lastIndexOf(".");
-    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
-	{
-        alert("Not a valid e-mail address");
-        return false;
-    }
-    
-    var passw=  /^[A-Za-z]\w{7,14}$/;  
-    if( document.forms["myForm"]["password"].value.match(passw))   
-    {   
-    alert('Correct, try another...')  
-    return true;  
-    }  
-    else  
-    {   
-    alert('Wrong...!')  
-    return false;  
-    }  
-}
 
 
-</script>
 <!-- Bootstrap References -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
@@ -55,6 +30,20 @@ function validateForm()
 
 </head>
 <body>
+
+
+	<%  
+    String profile_msg=(String)request.getAttribute("profile_msg");  
+    if(profile_msg!=null){  
+    out.print(profile_msg);  
+    }  
+    String login_msg=(String)request.getAttribute("login_msg");  
+    if(login_msg!=null){  
+    out.print(login_msg);  
+    }  
+     %>
+     
+      <form action="loginprocess.jsp" method="post">  
 	<!-- Main Script  -->
 	<div class="container ">
 		<div class="container justify-content-center col-6 supercontainer"
@@ -106,12 +95,12 @@ function validateForm()
 					</div>
 					<div class="row">
 						<div class="col padding">
-							<form name="myForm" class="formpadding" onsubmit="return validateForm();"
-							                           method="post">
+							<form name="myForm" class="formpadding"
+								onsubmit="return validateForm();" method="post">
 								<input type="email" class="form-control" class="form-control"
-									id="email" placeholder="Enter email" name="email"> 
-								<input type="password" class="form-control" id="password"
-									placeholder="Enter password" name="password" >
+									id="email" placeholder="Enter email" name="email"> <input
+									type="password" class="form-control" id="password"
+									placeholder="Enter password" name="password">
 								<button type="submit" class="btn btn-success  btn-lg btn-block "
 									id="submitButton">Submit</button>
 								<br>
@@ -119,7 +108,7 @@ function validateForm()
 									<a href="#">Forgot password?</a>
 								</div>
 								<div id="register">
-									<a href="#">Register!</a>
+									<a href="signUP.jsp">Register!</a>
 								</div>
 							</form>
 						</div>
@@ -128,6 +117,6 @@ function validateForm()
 			</div>
 		</div>
 	</div>
-
+</form>
 </body>
 </html>
