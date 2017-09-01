@@ -12,14 +12,19 @@
 
 <style>
 .container {
-	background-color: white;
+	
 }
 
-;
+
 #signin {
 	background-color: #43af43
 }
-;
+
+
+.column{
+margin:0 auto;
+background-color: white;
+}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -71,7 +76,7 @@
             return false;
         }
         return true;
-	}
+	
 </script>
 
 
@@ -79,8 +84,9 @@
 </head>
 <body style="background-color: rgba(79, 222, 222, 0.72)">
 	<div class="container">
+		<div class ="col-lg-6 col-md-6 col-sm-6 col-xs-6 column">
 		<h2>Create an Account</h2>
-		<form action="" name="login" onsubmit="return validateForm()"
+		<form action="InsertData" name="login" onsubmit="return validateForm()"
 			method="post">
 			<div class="form-group">
 				<label for="fullname">Enter your full name</label> <input
@@ -92,18 +98,18 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="radio">
-							<label><input type="radio" name="optradio">Male</label>
+							<label><input type="radio" name="gender">Male</label>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="radio">
-							<label><input type="radio" name="optradio">Female</label>
+							<label><input type="radio" name="gender">Female</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="fullname">Enter your mobileNo</label> <input
 							type="text" id="fullname" class="form-control"
-							placeholder="Enter your mobile number" name="phone">
+							placeholder="Enter your mobile number" name="mobileNumber">
 					</div>
 					<div class="form-group">
 						<label for="email">Enter your email</label><br> <input
@@ -113,12 +119,12 @@
 					<div class="form-group">
 						<label for="pwd">Enter your Password</label><br> <input
 							id="password" type="password" class="form-control"
-							placeholder="Enter password" name="pwd">
+							placeholder="Enter password" name="password">
 					</div>
 					<div class="form-group">
 						<label for="pwd">Confirm Password:</label><br> <input
 							id="confirm_password" type="password" class="form-control"
-							placeholder="Enter password" name="pwd">
+							placeholder="Enter password" name="password">
 					</div>
 					<div class="form-group">
 						<p style="border-style: dotted; margin: 0; padding: 10px">
@@ -132,11 +138,12 @@
 							class="form-control"
 							style="color: white; background-color: #43af43" id="signin"
 							class="btn">Submit</button>
+							</from>
 						<p style="text-align:center">Create an account?<style></p>
 					</div>
 		</form>
 	</div>
-	
+	</div>
 	
 
 </body>

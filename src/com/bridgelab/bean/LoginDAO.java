@@ -1,14 +1,35 @@
 package com.bridgelab.bean;  
-import java.sql.*;  
+import java.sql.*;
+
+import com.bridgelab.bean.LoginBean; 
 public class LoginDAO 
 {  
+	
+	
+	public static Connection getConnection()
+	{
+		Connection connection = null;
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection
+					("jdbc:mysql://localhost:3306/users","root","root");
+		}
+		catch(Exception LoginBean)
+		{
+			System.out.println(LoginBean);
+		}
+		return connection;
+	}
 
 	public static boolean validate(LoginBean bean) 
-			throws ClassNotFoundException, SQLException{  
+			throws ClassNotFoundException, SQLException
+	{  
 		boolean status=false;  
 		Connection con = null;
 		System.out.println("Inside bean");
-		try{  
+		try
+		{  
 			Class.forName(Provider.DRIVER);
 			con=DriverManager.getConnection(Provider.CONNECTION_URL, Provider.USERNAME, Provider.PASSWORD);
 			System.out.println("connection opened");
@@ -26,12 +47,39 @@ public class LoginDAO
 			System.out.println("status: "+status);
 
 		}
-		finally {
+		finally 
+		{
 			if(con!= null)
-			con.close();
+				con.close();
 		}
 
 		return status;  
 
 	}  
+	
+	public static int save(LoginBean loginbean)
+	{
+		int status=0;
+		try
+		{
+			Connection con=LoginDAO.getConnection();
+			PreparedStatement ps=con.prepareStatement("insert into use_details(name,password,email,mobileNumber"
+					+ ",gender)"
+					+ " values (?,?,?,?,?)");
+			ps.setString(1,loginbean.getName());
+			ps.setString(2,loginbean.getPassword());
+			ps.setString(3,loginbean.getEmail());
+			ps.setString(4,loginbean.getMobileNumber());
+			ps.setString(5,loginbean.getGender());
+
+			status=ps.executeUpdate();
+
+			con.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+
+		return status;
+	}
 }  
