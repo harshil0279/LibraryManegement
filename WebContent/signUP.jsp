@@ -1,150 +1,79 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<html>
+
 <!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<head>
-<title>Registration page</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Sign Up</title>
+
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous">
 
-<style>
-.container {
-	
-}
-
-
-#signin {
-	background-color: #43af43
-}
-
-
-.column{
-margin:0 auto;
-background-color: white;
-}
-</style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script>
-	function validateForm() {
-		var x = document.forms["login"]["name"].value;
-		if (x == "") {
-			alert("Name must be filled out");
-			return false;
-		}	
-
-		var genders = document.getElemetsByName("optradio");
-		if (!genders[0].checked) {
-			if(!genders[1].checked){
-				console.log("gender check");
-				alert("Please choose your Gender: Male or Female");				
-			}
-		}
-				
-			return false;
-		}
-		if (ErrorText = "") {
-			form.submit()
-		}
-
-		var a = document.form.phone.value;
-		if(a=="")
-		{
-		alert("Please Enter Your Mobile Number");
-		document.form.phone.focus();
-		return false;
-		}
-		
-		var x = document.forms["login"]["email"].value;
-	    var atpos = x.indexOf("@");
-	    var dotpos = x.lastIndexOf(".");
-	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-	        alert("Not a valid e-mail address");
-	        return false;
-	    }
-	    
-	    var password = document.getElementById("password").value;
-        var confirmPassword = document.getElementById("confirm_password").value;
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-        return true;
-	
-</script>
-
-
+<link rel="stylesheet" type="text/css" href="CSS/registration.css">
 
 </head>
-<body style="background-color: rgba(79, 222, 222, 0.72)">
-	<div class="container">
-		<div class ="col-lg-6 col-md-6 col-sm-6 col-xs-6 column">
-		<h2>Create an Account</h2>
-		<form action="InsertData" name="login" onsubmit="return validateForm()"
-			method="post">
-			<div class="form-group">
-				<label for="fullname">Enter your full name</label> <input
-					type="text" id="fullname" class="form-control"
-					placeholder="Enter your full name" name="name">
+<div class="container">
+
+		<div class="row">
+
+			<div class="col-lg-5 col-md-6 col-sm-8 col-xs-8 block">
+
+				<h1>Create An Account</h1>
+				<hr>
+				<form action="InsertData" name="login" method="post">
+
+					<div class="form-group">
+						<label for="name">Full Name:</label> <input type="text"
+							class="form-control" name="name" id="name">
+					</div>
+
+					<div class="form-group">
+						<label for="email">Email address:</label> <input type="email"
+							class="form-control" name="email" id="email">
+					</div>
+
+					<div class="form-group">
+						<label for="mobno">Enter Your Mobile Number</label> <input type="tel"
+							class="form-control" name="mobileNumber" id="mobno">
+					</div>
+					Gender: <label class="radio-inline"> <input type="radio"
+						id="male" name="gender" value="Male">Male
+					</label> <label class="radio-inline"> <input type="radio"
+						id="female" name="gender" value="Female">Female
+					</label>
+
+					<div class="form-group">
+						<label for="password">New Password:</label> <input type="password"
+							class="form-control" id="password" name="password">
+					</div>
+					<div class="form-group">
+						<label for="password">Conform Password</label> <input type="password"
+							class="form-control" id="password" name="password">
+					</div>
+					<p id="para">
+						By Clicking on the "Create an account" button below, you certify
+						that you have read and agreed to our <a href="#">terms of use</a>
+						and <a href="#">privacy policy<a>
+					</p>
+					<center>
+						<input type="submit" value="Create An Account"
+							class="inputs btn-background text-center" id="register-button"
+							onClick="return validateForm()">
+					</center>
+				</form>
+				<p id="last-line">
+					Already have an account? <a href="index.jsp">Sign in.</a>
+				</p>
+
 			</div>
-			<div class="form-group">
-				<label for="gender">Gender</label>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="radio">
-							<label><input type="radio" name="gender">Male</label>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="radio">
-							<label><input type="radio" name="gender">Female</label>
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="fullname">Enter your mobileNo</label> <input
-							type="text" id="fullname" class="form-control"
-							placeholder="Enter your mobile number" name="mobileNumber">
-					</div>
-					<div class="form-group">
-						<label for="email">Enter your email</label><br> <input
-							type="email" id="email" class="form-control"
-							placeholder="Enter email" name="email">
-					</div>
-					<div class="form-group">
-						<label for="pwd">Enter your Password</label><br> <input
-							id="password" type="password" class="form-control"
-							placeholder="Enter password" name="password">
-					</div>
-					<div class="form-group">
-						<label for="pwd">Confirm Password:</label><br> <input
-							id="confirm_password" type="password" class="form-control"
-							placeholder="Enter password" name="password">
-					</div>
-					<div class="form-group">
-						<p style="border-style: dotted; margin: 0; padding: 10px">
-							By Clicking On the "Create an account button" bellow, yoy certify
-							that you have read and agree to our <a href="">terms of use</a>
-							and <a href="">privacy policy</a>
-						</p>
 
-						<br>
-						<button type="submit" onclick="validateForm()"
-							class="form-control"
-							style="color: white; background-color: #43af43" id="signin"
-							class="btn">Submit</button>
-							</from>
-						<p style="text-align:center">Create an account?<style></p>
-					</div>
-		</form>
-	</div>
-	</div>
-	
+		</div>
 
+	</div>
+
+	<script type="text/javascript" src="scripts/registration.js"></script>
 </body>
 </html>

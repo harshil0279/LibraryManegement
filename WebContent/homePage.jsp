@@ -41,8 +41,8 @@
       <a class="navbar-brand" href="#">Library</a>
     </div>
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><%= session.getAttribute("email") + "&nbsp;&nbsp;&nbsp;&nbsp;" %></li>
-			<li class="nav-item"><a href="#">Logout</a></li>
+			<li class="nav-item"><% out.print(session.getAttribute("email") + "&nbsp;&nbsp;&nbsp;&nbsp;"); %></li>
+			<li class="nav-item"><a href="LogoutServlet">Logout</a></li>
 		</ul>
 	</div>
 	</nav>

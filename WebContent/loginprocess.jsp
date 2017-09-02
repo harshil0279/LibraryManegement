@@ -1,3 +1,4 @@
+
 <%@page import="com.bridgelab.bean.LoginDAO"%>
 <jsp:useBean id="obj" class="com.bridgelab.bean.LoginBean" />
 
@@ -7,7 +8,10 @@
     boolean status=LoginDAO.validate(obj);  
     if(status){  
     out.println("You r successfully logged in");  
-    session.setAttribute("session","TRUE");  
+    String site = new String("homePage.jsp");
+    response.setStatus(response.SC_MOVED_TEMPORARILY);
+    response.setHeader("Location", site); 
+    session.setAttribute("email",request.getParameter("email"));  
     }  
     else  
     {  
