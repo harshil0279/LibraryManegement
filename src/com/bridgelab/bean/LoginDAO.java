@@ -5,6 +5,8 @@ import com.bridgelab.bean.LoginBean;
 public class LoginDAO 
 {  
 	
+	public static int status;
+
 	
 	public static Connection getConnection()
 	{
@@ -80,6 +82,31 @@ public class LoginDAO
 			ex.printStackTrace();
 		}
 
+		return status;
+	}
+	
+	public static int saveBookData(LoginBean loginbean)
+	{
+		int status = 0;
+		try
+		{
+			Connection connection = LoginDAO.getConnection();
+			PreparedStatement ps = connection.prepareStatement("insert into book_details"
+					+ "(book_title,author,category,price)values(?,?,?,?)");
+			ps.setString(1, loginbean.getBook_title());
+			ps.setString(2,loginbean.getAuthor());
+			ps.setString(3,loginbean.getCategory());
+			ps.setString(4,loginbean.getPrice());
+			
+			status = ps.executeUpdate();
+			connection.close();
+			
+			
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 		return status;
 	}
 }  

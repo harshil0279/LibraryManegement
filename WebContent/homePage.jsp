@@ -4,7 +4,7 @@
 <%@page import="com.bridgelabz.LibraryDatabase"%> --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,34 +14,39 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
 	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
 	crossorigin="anonymous">
-	<title>Insert title here</title>
-	<style type="text/css">
+<title>Insert title here</title>
+<style type="text/css">
 .nav-color {
 	background-color: #C7CAD5;
 }
+
 #btn-add {
 	position: fixed;
 	bottom: 100px;
 	right: 100px;
 }
+
 .form-pull-right {
 	float: right;
 	margin-right: 15px;
 }
-.container-margin-top{
+
+.container-margin-top {
 	margin-top: 10px;
 }
 </style>
-	
+
 </head>
 <body>
-   	<nav class="navbar navbar-expand-md nav-color">
+	<nav class="navbar navbar-expand-md nav-color">
 	<div class="container-fluid">
-	<div class="navbar-header">
-      <a class="navbar-brand" href="#">Library</a>
-    </div>
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Library</a>
+		</div>
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><% out.print(session.getAttribute("email") + "&nbsp;&nbsp;&nbsp;&nbsp;"); %></li>
+			<li class="nav-item">
+				<% out.print(session.getAttribute("email") + "&nbsp;&nbsp;&nbsp;&nbsp;"); %>
+			</li>
 			<li class="nav-item"><a href="LogoutServlet">Logout</a></li>
 		</ul>
 	</div>
@@ -50,33 +55,26 @@
 
 	<div class="container container-margin-top">
 		<button class="btn btn-primary" type="button" data-toggle="modal"
-			data-target="#science-data" onClick="onClick(1)">Science</button>
-		<button class="btn">Commerce</button>
-		<button class="btn">Arts</button>
-
+			data-target="#science-data">Science</button>
 		<div class="modal fade" id="science-data" tabindex="-1">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">Science Books</div>
 					<div class="modal-body">
 					
-					<%-- <%
-							/* LibraryDatabase db = new LibraryDatabase();
-							ArrayList<Book> books = db.getScienceData();
-							out.print("<ol>");
-							for (Book book : books) {
-								out.print("<li>");
-								out.print("<a data-toggle='modal' href='#'>" + book.getTitle() + "</a>");
-								out.print("<button type='button' class='close' data-dismiss='modal'>&times;</button>");
-								out.print("<a href='#' class='form-pull-right'>edit</a>");
-								out.print("</li>");
-							}
-							out.print("</ol>"); */
-						%> --%>
+					  
+					   
+					 
+					
 					</div>
 				</div>
 			</div>
 		</div>
+		<button class="btn btn-primary" type="button" data-toggle="modal"
+			data-target="#science-data">Arts</button>
+		<button class="btn btn-primary" type="button" data-toggle="modal"
+			data-target="#science-data">Commerce</button>
+
 	</div>
 
 
@@ -86,14 +84,14 @@
 	<div class="modal fade" id="add-data" tabindex="-1">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="AddNewBook">
+				<form action="InsertBookData" name="addNewBook" method="post">
 					<div class="modal-header">
 						<h4 class="modal-title">Add Book</h4>
 					</div>
 
 					<div class="modal-body">
 						<div class="form-group">
-							<input type="text" class="form-control" name="title"
+							<input type="text" class="form-control" name="book_title"
 								placeholder="Book Title">
 						</div>
 
@@ -144,7 +142,7 @@
 		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
 		crossorigin="anonymous"></script>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 	var id = 0;
 	function onClick(btnId){
 		id = btnId;

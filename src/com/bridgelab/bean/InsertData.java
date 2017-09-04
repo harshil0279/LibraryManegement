@@ -34,24 +34,30 @@ public class InsertData extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
+		
 		LoginBean loginbean = new LoginBean();
 		loginbean.setName(name);
 		loginbean.setMobileNumber(mobileNumber);
 		loginbean.setGender(gender);
 		loginbean.setEmail(email);
-		loginbean.setPassword(password);
+		loginbean.setPassword(password);	
 		
-		int status = LoginDAO.save(loginbean);
-		if(status > 0)
-		{
+		
+		LoginDAO.status = LoginDAO.save(loginbean);
+	
+		if(LoginDAO.status > 0)
+		{	
 			out.print("<p>Record Saved Successfully</p>");
-			request.getRequestDispatcher("index.html").include(request, response);		
+			request.getRequestDispatcher("").include(request, response);		
 			
 		}
 		else
 		{
 			out.println("Sorry unable to save record");
 		}
+		
+		
+		
 		
 		
 	}
