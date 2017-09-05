@@ -1,7 +1,10 @@
 package com.bridgelab.bean;  
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.bridgelab.bean.LoginBean; 
+import com.bridgelab.bean.LoginBean;
+
 public class LoginDAO 
 {  
 	
@@ -96,7 +99,7 @@ public class LoginDAO
 			ps.setString(1, loginbean.getBook_title());
 			ps.setString(2,loginbean.getAuthor());
 			ps.setString(3,loginbean.getCategory());
-			ps.setString(4,loginbean.getPrice());
+			ps.setDouble(4,loginbean.getPrice());
 			
 			status = ps.executeUpdate();
 			connection.close();
@@ -108,5 +111,32 @@ public class LoginDAO
 			ex.printStackTrace();
 		}
 		return status;
+	}
+	
+
+	
+	
+	public static List<LoginBean> getAllBooks()
+	{
+		List<LoginBean> list=new ArrayList<LoginBean>();
+
+		try
+		{
+			Connection con=LoginDAO.getConnection();
+			PreparedStatement ps=con.prepareStatement("select * from book_details where category=?");
+			ps.setString(1, "Science");
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()){
+			     LoginBean loginBean = new LoginBean();
+			     loginBean.setBook_title(rs.getString(2));
+			     loginBean.setAuthor(rs.getString(3));
+			     loginBean.setCategory(rs.getString(4));
+			     loginBean.setPrice(rs.getDouble(5));
+				list.add(loginBean);
+			}
+			con.close();
+		}catch(Exception e){e.printStackTrace();}
+
+		return list;
 	}
 }  

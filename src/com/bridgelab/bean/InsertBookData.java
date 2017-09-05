@@ -29,7 +29,7 @@ public class InsertBookData extends HttpServlet {
 		String book_title = request.getParameter("book_title");
 		String author = request.getParameter("author");
 		String category = request.getParameter("category");
-		String price = request.getParameter("price");
+		Double price = Double.parseDouble(request.getParameter("price"));
 
 		LoginBean loginbean = new LoginBean();
 

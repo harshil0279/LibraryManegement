@@ -1,7 +1,20 @@
 package com.bridgelab.bean;
 
 public class LoginBean {
-	private String email, password, name, mobileNumber, gender,book_title,author,category,price;
+	private String email, password, name, mobileNumber, gender,book_title,author,category;
+	private double price;
+
+	
+
+	
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 
 	public String getBook_title() {
 		return book_title;
@@ -27,13 +40,9 @@ public class LoginBean {
 		this.category = category;
 	}
 
-	public String getPrice() {
-		return price;
-	}
+	
 
-	public void setPrice(String price) {
-		this.price = price;
-	}
+	
 
 	public String getName() {
 		return name;

@@ -1,15 +1,9 @@
-<%-- <%@page import="com.bridgelabz.CreateModal"%>
-<%@page import="com.bridgelabz.Book"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.bridgelabz.LibraryDatabase"%> --%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
 	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
@@ -35,10 +29,10 @@
 	margin-top: 10px;
 }
 </style>
-
 </head>
 <body>
-	<nav class="navbar navbar-expand-md nav-color">
+
+     <nav class="navbar navbar-expand-md nav-color">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">Library</a>
@@ -145,8 +139,10 @@
 	<script type="text/javascript">
 	var id = 0;
 	function onClick(btnId){
-		id = btnId;
+		id = btnId; 
 	}
 </script>
+</body>
+
 </body>
 </html>
