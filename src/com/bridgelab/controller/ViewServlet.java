@@ -1,4 +1,4 @@
-package com.bridgelab.bean;
+package com.bridgelab.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.bridgelab.dao.LoginDAO;
+import com.bridgelab.model.LoginBean;
 
 /**
  * Servlet implementation class ViewServlet
@@ -21,9 +24,10 @@ public class ViewServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException 
 	{
+		System.out.println("inside view");
 		response.setContentType("text/html");
 		PrintWriter printWriter = response.getWriter();
 		printWriter.println("<h1>Books List</h1>");
@@ -39,5 +43,6 @@ public class ViewServlet extends HttpServlet {
 		printWriter.print("</table>");
 		printWriter.close();
 	}
+	
 
 }

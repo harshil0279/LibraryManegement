@@ -1,4 +1,4 @@
-package com.bridgelab.bean;
+package com.bridgelab.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bridgelab.bean.LoginBean;
-import com.bridgelab.bean.LoginDAO;
+import com.bridgelab.dao.LoginDAO;
+import com.bridgelab.model.LoginBean;
 
 /**
  * Servlet implementation class InsertData

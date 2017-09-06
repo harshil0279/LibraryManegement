@@ -1,4 +1,4 @@
-package com.bridgelab.bean;
+package com.bridgelab.model;
 
 public class LoginBean {
 	private String email, password, name, mobileNumber, gender,book_title,author,category;

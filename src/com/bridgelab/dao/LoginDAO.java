@@ -1,9 +1,10 @@
-package com.bridgelab.bean;  
+package com.bridgelab.dao;  
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bridgelab.bean.LoginBean;
+import com.bridgelab.controller.Provider;
+import com.bridgelab.model.LoginBean;
 
 public class LoginDAO 
 {  
@@ -95,11 +96,12 @@ public class LoginDAO
 		{
 			Connection connection = LoginDAO.getConnection();
 			PreparedStatement ps = connection.prepareStatement("insert into book_details"
-					+ "(book_title,author,category,price)values(?,?,?,?)");
+					+ "(book_title,author,category,price,name)values(?,?,?,?,?)");
 			ps.setString(1, loginbean.getBook_title());
 			ps.setString(2,loginbean.getAuthor());
 			ps.setString(3,loginbean.getCategory());
 			ps.setDouble(4,loginbean.getPrice());
+			ps.setString(5,loginbean.getEmail());
 			
 			status = ps.executeUpdate();
 			connection.close();
@@ -123,8 +125,8 @@ public class LoginDAO
 		try
 		{
 			Connection con=LoginDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("select * from book_details where category=?");
-			ps.setString(1, "Science");
+			PreparedStatement ps=con.prepareStatement("select * from book_details");
+		   
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()){
 			     LoginBean loginBean = new LoginBean();

@@ -1,4 +1,4 @@
-package com.bridgelab.bean;
+package com.bridgelab.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.bridgelab.dao.LoginDAO;
+import com.bridgelab.model.LoginBean;
 
 /**
  * Servlet implementation class InsertBookData
@@ -25,11 +29,12 @@ public class InsertBookData extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
-	
+		HttpSession session = request.getSession();
 		String book_title = request.getParameter("book_title");
 		String author = request.getParameter("author");
 		String category = request.getParameter("category");
 		Double price = Double.parseDouble(request.getParameter("price"));
+		String email = (String) session.getAttribute("email");
 
 		LoginBean loginbean = new LoginBean();
 
@@ -37,6 +42,7 @@ public class InsertBookData extends HttpServlet {
 		loginbean.setAuthor(author);
 		loginbean.setCategory(category);
 		loginbean.setPrice(price);
+		loginbean.setEmail(email);
 
 
 		LoginDAO.status = LoginDAO.saveBookData(loginbean);

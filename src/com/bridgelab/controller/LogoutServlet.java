@@ -1,4 +1,4 @@
-package com.bridgelab.bean;
+package com.bridgelab.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

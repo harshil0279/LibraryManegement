@@ -1,6 +1,6 @@
 
-<%@page import="com.bridgelab.bean.LoginDAO"%>
-<jsp:useBean id="obj" class="com.bridgelab.bean.LoginBean" />
+<%@page import="com.bridgelab.dao.LoginDAO"%>
+<jsp:useBean id="obj" class="com.bridgelab.model.LoginBean" />
 
 <jsp:setProperty property="*" name="obj" />
 
@@ -12,6 +12,7 @@
     response.setStatus(response.SC_MOVED_TEMPORARILY);
     response.setHeader("Location", site); 
     session.setAttribute("email",request.getParameter("email"));  
+    session.setAttribute("name",request.getParameter("name"));
     }  
     else  
     {  

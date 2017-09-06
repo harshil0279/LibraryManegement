@@ -1,6 +1,7 @@
-package com.bridgelab.bean;  
+/***package com.bridgelab.controller;  
+import static com.bridgelab.controller.Provider.*;
+
 import java.sql.*;  
-import static com.bridgelab.bean.Provider.*;  
 
 public class ConnectionProvider {  
 	private static Connection con=null;  
@@ -15,4 +16,4 @@ public class ConnectionProvider {
 		return con;  
 	}  
 
-}  
+} ***/

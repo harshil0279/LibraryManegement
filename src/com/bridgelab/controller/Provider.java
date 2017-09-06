@@ -1,4 +1,4 @@
-package com.bridgelab.bean;  
+package com.bridgelab.controller;  
 
 public interface Provider 
 {  
