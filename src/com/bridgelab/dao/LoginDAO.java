@@ -118,15 +118,15 @@ public class LoginDAO
 
 	
 	
-	public static List<LoginBean> getAllBooks()
+	public static List<LoginBean> getAllBooks(String category)
 	{
 		List<LoginBean> list=new ArrayList<LoginBean>();
 
 		try
 		{
 			Connection con=LoginDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("select * from book_details");
-		   
+			PreparedStatement ps=con.prepareStatement("select * from book_details where category=?");
+		    ps.setString(1,category);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()){
 			     LoginBean loginBean = new LoginBean();
@@ -140,5 +140,23 @@ public class LoginDAO
 		}catch(Exception e){e.printStackTrace();}
 
 		return list;
+	}
+	
+	public static int delete (int id)
+	{
+		int status = 0;
+		try
+		{
+			Connection con=LoginDAO.getConnection();
+			PreparedStatement ps=con.prepareStatement("delete from book_details where id=?");
+			ps.setInt(1,id);
+			status=ps.executeUpdate();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return status;
+		
 	}
 }  

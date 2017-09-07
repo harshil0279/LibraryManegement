@@ -27,7 +27,17 @@
 	crossorigin="anonymous"></script>
 
 <link rel="stylesheet" type="text/css" href="CSS/login.css" />
-
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+}
+</script>
 </head>
 <body>
 
@@ -86,7 +96,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-6 subcontainer sideborder classpadding">
+				<div class="col-sm-12 subcontainer sideborder classpadding">
 					<div class="row">
 						<div class="col">
 							<h4 id="faded">Use your accounts</h4>

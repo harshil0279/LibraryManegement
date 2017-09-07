@@ -29,15 +29,16 @@ public class ViewServlet extends HttpServlet {
 	{
 		System.out.println("inside view");
 		response.setContentType("text/html");
+		String category = request.getParameter("category");
 		PrintWriter printWriter = response.getWriter();
 		printWriter.println("<h1>Books List</h1>");
-		List<LoginBean> list = LoginDAO.getAllBooks();
+		List<LoginBean> list = LoginDAO.getAllBooks(category);
 		printWriter.print("<table border='1' width='100%'");
-		printWriter.print("<tr><th>Book_title</th><th>Author</th><th>Category</th><th>Price</th></tr>");
+		printWriter.print("<tr><th>Book_title</th><th>Author</th><th>Category</th><th>Price</th><th>Edit</th><th>Delete</th></tr>");
 
 		for(LoginBean loginBean:list)
 		{
-			printWriter.print("<tr><td>"+loginBean.getBook_title()+"</td><td>"+loginBean.getAuthor()+"</td><td>"+loginBean.getCategory()+"</td><td>"+loginBean.getPrice()+"</td></tr>"); 
+			printWriter.print("<tr><td>"+loginBean.getBook_title()+"</td><td>"+loginBean.getAuthor()+"</td><td>"+loginBean.getCategory()+"</td><td>"+loginBean.getPrice()+"</td><td><a href='EditServlet?id="+loginBean.getId()+"'>edit</a></td><td><a href='DeleteBook?id="+loginBean.getId()+"'>delete</a></td></tr>"); 
 			
 		}
 		printWriter.print("</table>");
