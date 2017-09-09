@@ -38,11 +38,11 @@ public class ViewServlet extends HttpServlet {
 
 		for(LoginBean loginBean:list)
 		{
-			printWriter.print("<tr><td>"+loginBean.getBook_title()+"</td><td>"+loginBean.getAuthor()+"</td><td>"+loginBean.getCategory()+"</td><td>"+loginBean.getPrice()+"</td><td><a href='EditServlet?id="+loginBean.getId()+"'>edit</a></td><td><a href='DeleteBook?id="+loginBean.getId()+"'>delete</a></td></tr>"); 
+			printWriter.print("<tr><td>"+loginBean.getBook_title()+"</td><td>"+loginBean.getAuthor()+"</td><td>"+loginBean.getCategory()+"</td><td>"+loginBean.getPrice()+"</td><td><a href='EditServlet1?id="+loginBean.getId()+"'>edit</a></td><td><a href='DeleteBook?id="+loginBean.getId()+"'>delete</a></td></tr>"); 
 			
 		}
 		printWriter.print("</table>");
-		printWriter.close();
+		//printWriter.close();
 	}
 	
 

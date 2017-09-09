@@ -26,8 +26,7 @@ public class DeleteBook extends HttpServlet
 		String sid = request.getParameter("id");
 		int id = Integer.parseInt(sid);
 		LoginDAO.delete(id);
-		response.sendRedirect("ViewServlet");
-		System.out.println("Inside do get method");
+		response.sendRedirect("homePage.jsp");
 		
 	}
 

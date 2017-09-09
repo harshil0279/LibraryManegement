@@ -1,79 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Sign Up</title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-	crossorigin="anonymous">
 
-<link rel="stylesheet" type="text/css" href="CSS/registration.css">
+
+
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <link rel="stylesheet" type="text/css" href="CSS/sign-up.css">
 
 </head>
-<div class="container">
+<body>
 
-		<div class="row">
 
-			<div class="col-lg-5 col-md-6 col-sm-8 col-xs-8 block">
 
-				<h1>Create An Account</h1>
-				<hr>
-				<form action="InsertData" name="login" method="post">
+	<div class="container-fluid ">
+		<div class="center-block ">
+			<div class="row ">
+				<div class="col-sm-3 col-md-6 col-lg-4  block" id="raw-class">
 
+					<h2 id="accountid">Create an account</h2>
+					<hr>
 					<div class="form-group">
-						<label for="name">Full Name:</label> <input type="text"
+						<label for="usr">Enter Your Name</label> <input type="text"
 							class="form-control" name="name" id="name">
 					</div>
+					<!-- End of name form-group class -->
 
 					<div class="form-group">
-						<label for="email">Email address:</label> <input type="email"
+						<label for="usr">Enter your Email</label> <input type="email"
 							class="form-control" name="email" id="email">
 					</div>
-
+					<!-- End of email form-group class -->
 					<div class="form-group">
-						<label for="mobno">Enter Your Mobile Number</label> <input type="tel"
-							class="form-control" name="mobileNumber" id="mobno">
+						<label for="usr">Enter Your Mobile Number</label> <input
+							type="text" class="form-control" name="mobileNumber" id="name">
 					</div>
+					<!-- End of name form-group class -->
 					Gender: <label class="radio-inline"> <input type="radio"
-						id="male" name="gender" value="Male">Male
+						name="optradio">Male
 					</label> <label class="radio-inline"> <input type="radio"
-						id="female" name="gender" value="Female">Female
-					</label>
+						name="optradio">Female
+					</label><br>
+					<br>
 
 					<div class="form-group">
-						<label for="password">New Password:</label> <input type="password"
-							class="form-control" id="password" name="password">
+						<label for="pwd">Enter Your Password:</label> <input
+							type="password" class="form-control" name="password"
+							id="password">
 					</div>
+					<!-- End of password form-group class -->
+
 					<div class="form-group">
-						<label for="password">Conform Password</label> <input type="password"
-							class="form-control" id="password" name="password">
+						<label for="pwd">Conform Password:</label> <input type="password"
+							class="form-control" name="password" id="password">
 					</div>
-					<p id="para">
+					<!-- End of conform password form-group class -->
+
+
+					<p>
 						By Clicking on the "Create an account" button below, you certify
 						that you have read and agreed to our <a href="#">terms of use</a>
-						and <a href="#">privacy policy<a>
+						and <a href="#">privacy policy<a>.
 					</p>
-					<center>
-						<input type="submit" value="Create An Account"
-							class="inputs btn-background text-center" id="register-button"
-							onClick="return validateForm()">
-					</center>
-				</form>
-				<p id="last-line">
-					Already have an account? <a href="index.jsp">Sign in.</a>
-				</p>
+
+					<button type="button" class="btn btn-primary btn-block"
+						id="accountButton">create an account</button>
+					<p id="last-text">Already have an account ?Sign in</p>
+
+				</div>
+				<!-- End of col-sm-3 col-md-6 col-lg-4 class -->
 
 			</div>
-
+			<!-- End of row class -->
 		</div>
-
+		<!-- end of center-block class  -->
 	</div>
+	<!-- End of  container-fluid -->
 
-	<script type="text/javascript" src="scripts/registration.js"></script>
+
+
+
 </body>
 </html>

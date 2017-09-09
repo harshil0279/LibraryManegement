@@ -1,72 +1,43 @@
 body {
-	background-color: white;
+    background-color: lightblue;
+
 }
-.main-container
+.block {
+	background-color: white;
+	
+	margin: 0 auto;
+	
+	 float: none;
+}
+#accountButton
 {
-	background-color: green;
 	
+	margin-bottom:20px;
+	background-color:green;
+	margin-top:20px;
 	
 }
-.hrmargin{
-	margin: 20px;
-	color: lightgrey;
+
+#last-text
+{
+	 font-color:black;
+     font-size:15px;
+	
 }
 
-.supercontainer {
-	padding: 0px;
-	background-color: white;
-	border-radius: 7px;
-	box-shadow: 0px 5px 5px 5px lightgrey;
-	max-width: 650px;
-		
+#accountid
+{
+	
+	margin-top:30px;
 }
 
-.hidden{
-	display: none;
+.col-centered {
+ float: none;
+    margin: 0 auto;
 }
 
-.bigbutton {
-	margin: 0px;
-	padding: 15px;
-}
 
-.formpadding{
-	padding-left: 15px;
-	padding-right: 15px;
+#last-text
+{
+	 margin-bottom:30px;
 }
-
-.classpadding {
-	padding: 15px;
-}
-
-.sideborder {
-	border-left: 1px solid lightgrey;
-	margin-bottom: 20px;
-}
-
-#faded {
-	color: grey;
-}
-
-.facebook {
-	background-color: #1C2833;
-	color: white;
-	margin: 0px;
-}
-
-.facebook:hover {
-	background-color: black;
-	color: white;
-}
-
-#register {
-	float: right;
-}
-
-#pass {
-	float: left;
-}
-
-.roundbutton {
-	border-radius: 2px;
-}	

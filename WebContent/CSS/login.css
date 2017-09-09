@@ -1,74 +1,43 @@
-body {
-	background-color: #E8E8E8;
+.col-centered {
+  float: none;
+  margin-right: auto;
+  margin-left: auto;
 }
-
-.hrmargin{
-	margin: 20px;
-	color: lightgrey;
-}
-
-.supercontainer {
-	padding: 0px;
-	background-color: white;
-	border-radius: 7px;
-	box-shadow: 0px 5px 5px 5px lightgrey;
-	max-width: 650px;
-		
-}
-
-.hidden{
-	display: none;
-}
-
-.bigbutton {
-	margin: 0px;
-	padding: 15px;
-}
-
-.formpadding{
-	padding-left: 15px;
-	padding-right: 15px;
-}
-
-.classpadding {
-	padding: 15px;
-}
-
-.sideborder {
-	border-left: 1px solid lightgrey;
-	margin-bottom: 20px;
-}
-
-#faded {
-	color: grey;
-}
-
-.facebook {
-	background-color: #1C2833;
-	color: white;
-	margin: 0px;
-}
-
-.facebook:hover {
-	background-color: black;
-	color: white;
-}
-
-#register {
-	float: right;
-}
-
-#pass {
-	float: left;
-}
-
-.roundbutton {
-	border-radius: 2px;
-}
-
-#submitButton
+#accountButton1
 {
-   margin-top:20px;
-   //width:280px;	
+	background-color:blue;
+	
 }
+
+#accountButton2
+{
+	margin-top:20px;
+	background-color:black;	
 }
+
+#accountButton3
+{
+	
+	background-color:#00FFFF;	
+}
+
+#account-font
+{
+	font-size:20px;
+}
+
+#fpassword
+{
+	font-color:sky blue;
+	margin-top:20px;
+	 
+}
+
+#email
+{
+	 margin-top:20px;
+}
+
+
+
+
