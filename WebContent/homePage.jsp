@@ -149,7 +149,7 @@
 $(document).ready(function(){
 	 
 	 console.log("Starting javascript");
-	 //javascript code to fetch science data
+	 //ajax code to fetch science data
 	 $('#category-body').click(function(){
 
 		 
@@ -161,6 +161,9 @@ $(document).ready(function(){
 					 
 				  $('#body-of-modal').html(result);
 				  $('#scienceModal').modal('show');
+				  
+				  refreshClickEvent() 
+				  
 			   }
 			   
 		   });
@@ -169,7 +172,7 @@ $(document).ready(function(){
 
 	 
 	 
-	 //javascript code to fetch commerce data
+	 //ajax code to fetch commerce data
 		$('#category-commerce').click(function(){
 
 			 console.log("Test");
@@ -181,6 +184,9 @@ $(document).ready(function(){
 					  console.log("success");
 				  $('#body-of-modal').html(result);
 				  $('#scienceModal').modal('show');
+			  
+				  refreshClickEvent() 
+			   
 			   }
 			   
 		   });
@@ -188,7 +194,7 @@ $(document).ready(function(){
 		});
 		
 		
-		 //javascript code to fetch arts data
+		 //ajax code to fetch arts data
 		$('#category-arts').click(function(){
 
 			 console.log("Test");
@@ -200,12 +206,39 @@ $(document).ready(function(){
 					  console.log("success");
 				  $('#body-of-modal').html(result);
 				  $('#scienceModal').modal('show');
+			   
+				  refreshClickEvent() 
 			   }
 			   
 		   });
 			
 		});
 		
+	     function refreshClickEvent() { 
+
+			$("body .edit-class").off();
+
+			$("body .edit-class").on("click", function() {
+				var id = $(this).attr('id');
+			
+				id = id.replace('EditServlet1?id=','');
+				//console.log("Inside click event");
+				$.ajax({
+					
+					type : "post",
+					url : "ViewServlet",
+					data : {id:id},
+					success : function(data) {
+						$('#body-of-modal').html(data);
+						
+					}
+				});
+			});
+	     }
+		
+		
+	
+		 
 		
 		
 		

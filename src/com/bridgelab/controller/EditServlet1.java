@@ -32,12 +32,13 @@ public class EditServlet1 extends HttpServlet
 		   			out.println("<h1>Update Book</h1>");
 		            String sid = request.getParameter("id");
 		        	int id = Integer.parseInt(sid);
+		        	System.out.println("Inside edit servlet 1 ");
 		        	LoginBean loginBean = LoginDAO.getBookByID(id);
 		        	out.print("<form action='EditServlet2' method='post'>");
 		        	out.print("<table>");
 		        	out.print("<tr><td></td><td><input type='hidden' name='id' value='"+loginBean.getId()+"'/></td></tr>");
-		        	out.print("<tr><td>Book Name</td><td><input type='text' name='name' value='"+loginBean.getBook_title()+"'/></td></tr>");
-		        	out.print("<tr><td>Author Name:</td><td><input type='text' name='name' value='"+loginBean.getAuthor()+"'/></td></tr>");
+		        	out.print("<tr><td>Book Name</td><td><input type='text' name='book_title' value='"+loginBean.getBook_title()+"'/></td></tr>");
+		        	out.print("<tr><td>Author Name:</td><td><input type='text' name='author' value='"+loginBean.getAuthor()+"'/></td></tr>");
 		        	out.print("<tr><td>Price:</td><td><input type='text' name='price' value='"+loginBean.getPrice()+"'/></td></tr>");
 		        	out.print("<tr><td>Category</td><td>");
 		    		out.print("<select name='category' style='width:150px'>");

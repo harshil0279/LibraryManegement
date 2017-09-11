@@ -134,7 +134,8 @@ public class LoginDAO
 				loginBean.setBook_title(rs.getString(2));
 				loginBean.setAuthor(rs.getString(3));
 				loginBean.setCategory(rs.getString(4));
-				loginBean.setPrice(rs.getInt(5));
+				loginBean.setEmail(rs.getString(5));
+				loginBean.setPrice(rs.getInt(6));
 			}
 		}
 		catch(Exception ex)
@@ -190,18 +191,20 @@ public class LoginDAO
 	
 	public static int update(LoginBean loginBean)
 	{
+		System.out.println("book id " + loginBean.getId());
 		int status=0;
 		try
 		{
 			Connection con=LoginDAO.getConnection();
 			PreparedStatement preparetatement=con.prepareStatement
 					("update book_details set book_title=?,author=?,category=?,price=? where id=?");
-			
+			System.out.println("booktilte"+loginBean.getAuthor());
 			preparetatement.setString(1,loginBean. getBook_title());
 			preparetatement.setString(2,loginBean.getAuthor());
 			preparetatement.setString(3,loginBean.getCategory());
 			preparetatement.setInt(4,loginBean.getPrice());
 			preparetatement.setInt(5,loginBean.getId());
+			
 			status = preparetatement.executeUpdate();
 			
 		}

@@ -42,7 +42,8 @@ public class EditServlet2 extends HttpServlet {
 		loginBean.setAuthor(author);
 		loginBean.setCategory(category);
 		loginBean.setPrice(sprice);
-	
+		loginBean.setId(id);
+		System.out.println("Starting update method");
 		int status = LoginDAO.update(loginBean);
 		if(status > 0)
 		{
