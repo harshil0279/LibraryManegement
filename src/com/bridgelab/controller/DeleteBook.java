@@ -20,13 +20,14 @@ public class DeleteBook extends HttpServlet
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException
 	{
 		String sid = request.getParameter("id");
 		int id = Integer.parseInt(sid);
+		System.out.println("Inside delete servlet");
 		LoginDAO.delete(id);
-		response.sendRedirect("homePage.jsp");
+		//response.sendRedirect("homePage.jsp");
 		
 	}
 

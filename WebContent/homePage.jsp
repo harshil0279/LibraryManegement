@@ -33,9 +33,7 @@
 	</div>
 	<ul class="nav navbar-nav">
 		<li class="active"><a href="LogoutServlet" class="pull-right">Logout</a></li>
-		<li><a href="#">
-				<% out.print(session.getAttribute("email") + "&nbsp;&nbsp;&nbsp;&nbsp;"); %>
-		</li>
+		<li><a href="#"> <% out.print(session.getAttribute("email") + "&nbsp;&nbsp;&nbsp;&nbsp;"); %></li>
 		<li><a href="#"></a></li>
 		<li><a href="#"></a></li>
 	</ul>
@@ -52,7 +50,7 @@
 <div class="container">
 	<h2>Books Category</h2>
 	<button type="button" class="btn btn-primary" data-toggle="modal"
-		data-target="#scienceModal" id ="category-body">Science</button>
+		data-target="#scienceModal" id="category-body">Science</button>
 	<!-- Modal -->
 	<div class="modal fade" id="scienceModal" role="dialog">
 		<div class="modal-dialog">
@@ -147,12 +145,12 @@
  
  
 $(document).ready(function(){
-	 
+	 var category="";
 	 console.log("Starting javascript");
 	 //ajax code to fetch science data
 	 $('#category-body').click(function(){
 
-		 
+		 category="Science";
 		   $.ajax({			   
 			   type:'post',
 			   url: "ViewServlet",
@@ -162,7 +160,10 @@ $(document).ready(function(){
 				  $('#body-of-modal').html(result);
 				  $('#scienceModal').modal('show');
 				  
-				  refreshClickEvent() 
+				  refreshClickEvent();
+				   
+				 
+				
 				  
 			   }
 			   
@@ -174,7 +175,7 @@ $(document).ready(function(){
 	 
 	 //ajax code to fetch commerce data
 		$('#category-commerce').click(function(){
-
+			 category="Commerce";
 			 console.log("Test");
 		   $.ajax({			   
 			   type:'post',
@@ -196,7 +197,7 @@ $(document).ready(function(){
 		
 		 //ajax code to fetch arts data
 		$('#category-arts').click(function(){
-
+			 category="Arts";
 			 console.log("Test");
 		   $.ajax({			   
 			   type:'post',
@@ -213,7 +214,9 @@ $(document).ready(function(){
 		   });
 			
 		});
-		
+		 
+		 
+		//function to edit the data
 	     function refreshClickEvent() { 
 
 			$("body .edit-class").off();
@@ -222,23 +225,73 @@ $(document).ready(function(){
 				var id = $(this).attr('id');
 			
 				id = id.replace('EditServlet1?id=','');
-				//console.log("Inside click event");
-				$.ajax({
+				console.log("Inside click event " +id);
+				$.ajax
+				({
 					
 					type : "post",
-					url : "ViewServlet",
+					url : "EditServlet1",
 					data : {id:id},
-					success : function(data) {
+					success : function(data)
+					{
 						$('#body-of-modal').html(data);
 						
 					}
 				});
 			});
+			
+			
+			  //function for to delete the book data
+			   $("body .delete-class").off();			   
+			   $("body .delete-class").on("click",function()
+			    {
+				   
+				   var id = $(this).attr('id');
+				   
+				   id = id.replace('DeleteBook?id=','');
+				   $.ajax
+				   ({
+					   
+					   type:"post",
+					   url : "DeleteBook",
+					   data :{id:id},
+					   success:function(data)
+					   {
+						   
+						   loaddata();
+					   }
+				   });  		  		   
+				 
+				   
+			  });  	   	      
+			
+			
 	     }
+	     
+	     
+		
+		//function for loading data continouly
+	     function loaddata(){
+	    	 console.log("category " +category);
+	    	 $.ajax({			   
+				   type:'post',
+				   url: "ViewServlet",
+				   data:{category:category},
+				   success: function(result){
+						 
+					  $('#body-of-modal').html(result);
+					  $('#scienceModal').modal('show');
+					  
+					  refreshClickEvent();
+					   
+				   }
+	     });
+	     }
+	     
 		
 		
-	
-		 
+	  
+		  
 		
 		
 		

@@ -7,6 +7,15 @@ public class LoginBean {
 
 	
 
+	
+
+	@Override
+	public String toString() {
+		return "LoginBean [email=" + email + ", password=" + password + ", name=" + name + ", mobileNumber="
+				+ mobileNumber + ", gender=" + gender + ", book_title=" + book_title + ", author=" + author
+				+ ", category=" + category + ", id=" + id + ", price=" + price + "]";
+	}
+
 	public int getId() {
 		return id;
 	}
