@@ -224,7 +224,7 @@ $(document).ready(function(){
 			$("body .edit-class").on("click", function() {
 				var id = $(this).attr('id');
 			
-				id = id.replace('EditServlet1?id=','');
+				id = id.replace('EditServlet1?book_id=','');
 				console.log("Inside click event " +id);
 				$.ajax
 				({
@@ -248,7 +248,7 @@ $(document).ready(function(){
 				   
 				   var id = $(this).attr('id');
 				   
-				   id = id.replace('DeleteBook?id=','');
+				   id = id.replace('DeleteBook?book_id=','');
 				   $.ajax
 				   ({
 					   

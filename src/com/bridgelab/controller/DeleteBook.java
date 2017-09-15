@@ -1,5 +1,13 @@
 package com.bridgelab.controller;
 
+/**
+ * 
+ * @author   : Harshil Gandhi
+ * Date      : 13/09/2017
+ * Purpose   : create a servlet to delete the book data.
+ *             
+ **/
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

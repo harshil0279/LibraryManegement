@@ -1,8 +1,15 @@
 package com.bridgelab.controller;
 
+/**
+ * 
+ * @author   : Harshil Gandhi
+ * Date      : 13/09/2017
+ * Purpose   : create a servlet for loging out the user
+ *             
+ **/
+
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

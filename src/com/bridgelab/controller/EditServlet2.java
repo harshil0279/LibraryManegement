@@ -1,5 +1,13 @@
 package com.bridgelab.controller;
 
+/**
+ * 
+ * @author   : Harshil Gandhi
+ * Date      : 13/09/2017
+ * Purpose   : create a servlet to update a book data using the book id.
+ *             
+ **/
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -42,7 +50,7 @@ public class EditServlet2 extends HttpServlet {
 		loginBean.setAuthor(author);
 		loginBean.setCategory(category);
 		loginBean.setPrice(sprice);
-		loginBean.setId(id);
+		loginBean.setBook_id(id);
 		System.out.println("Starting update method");
 		int status = LoginDAO.update(loginBean);
 		if(status > 0)

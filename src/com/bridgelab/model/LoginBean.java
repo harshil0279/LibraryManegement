@@ -3,26 +3,26 @@ package com.bridgelab.model;
 public class LoginBean {
 	private String email, password, name, mobileNumber, gender,book_title,author,category;
 	
-     private int id,price;
-
+     private int book_id,price,user_id;
 	
 
 	
 
-	@Override
-	public String toString() {
-		return "LoginBean [email=" + email + ", password=" + password + ", name=" + name + ", mobileNumber="
-				+ mobileNumber + ", gender=" + gender + ", book_title=" + book_title + ", author=" + author
-				+ ", category=" + category + ", id=" + id + ", price=" + price + "]";
+	public int getBook_id() {
+		return book_id;
 	}
 
-	public int getId() {
-		return id;
+	public void setBook_id(int book_id) {
+		this.book_id = book_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}	
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 
 	public int getPrice() {
 		return price;

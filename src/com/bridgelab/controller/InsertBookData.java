@@ -1,5 +1,14 @@
 package com.bridgelab.controller;
 
+/**
+ * 
+ * @author   : Harshil Gandhi
+ * Date      : 13/09/2017
+ * Purpose   : create a servlet to insert a book datails from user.
+ *             
+ **/
+
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -30,13 +39,15 @@ public class InsertBookData extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		HttpSession session = request.getSession();
+		String user_id1=(String)session.getAttribute("user_id");  
+	    int user_id = Integer.parseInt(user_id1);
 		String book_title = request.getParameter("book_title");
 		String author = request.getParameter("author");
 		String category = request.getParameter("category");
 		String sprice = request.getParameter("price");
 		int price = Integer.parseInt(sprice);
 		String email = (String) session.getAttribute("email");
-
+      //  int user_id = (int) session.getAttribute("user_id");
 		LoginBean loginbean = new LoginBean();
 
 		loginbean.setBook_title(book_title);
@@ -44,7 +55,7 @@ public class InsertBookData extends HttpServlet {
 		loginbean.setCategory(category);
 		loginbean.setPrice(price);
 		loginbean.setEmail(email);
-
+        loginbean.setUser_id(user_id);
 
 		LoginDAO.status = LoginDAO.saveBookData(loginbean);
 		if(LoginDAO.status > 0)

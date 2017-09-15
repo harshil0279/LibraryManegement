@@ -1,4 +1,12 @@
 package com.bridgelab.dao;  
+
+/**
+ * 
+ * @author   : Harshil Gandhi
+ * Date      : 13/09/2017
+ * Purpose   : It contains all the methods to save,insert and update the book data.
+ *             
+ **/
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +22,10 @@ public class LoginDAO
 	public static int status;
 
 	
+	/**
+	 * @return connectionObject
+	 * @ It is used to create new connection.
+	 */
 	public static Connection getConnection()
 	{
 		Connection connection = null;
@@ -30,12 +42,20 @@ public class LoginDAO
 		return connection;
 	}
 
-	public static boolean validate(LoginBean bean) 
+	/**
+	 * @param beanObject
+	 * @return status
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @ It is used to validate email-id and password of user
+	 */
+	public static int validate(LoginBean bean) 
 			throws ClassNotFoundException, SQLException
 	{  
 		boolean status=false;  
 		Connection con = null;
 		System.out.println("Inside bean");
+		int user_id= -1;
 		try
 		{  
 			Class.forName(Provider.DRIVER);
@@ -43,17 +63,24 @@ public class LoginDAO
 			System.out.println("connection opened");
 
 			PreparedStatement ps=con.prepareStatement(  
-					"select * from userData where email=? and password=?");
-			System.out.println("ps created");
-
+					"select * from use_details where email=? and password=?");
+			
+            System.out.println("Email " + bean.getPassword());
 			ps.setString(1,bean.getEmail());  
-			ps.setString(2, bean.getPassword());  
-
+			ps.setString(2, bean.getPassword()); 
+			//fetch = rs.getInt("user_id");
 			ResultSet rs=ps.executeQuery();
-			System.out.println("statement executed");
-			status=rs.next();
-			System.out.println("status: "+status);
-
+			
+			
+			if(rs.next()){
+		
+				user_id = rs.getInt("user_id");
+				System.out.println("USER_id is"+user_id);
+				System.out.println("statement executed");
+				status=rs.next();
+				System.out.println("status: "+status);
+			}
+		
 		}
 		finally 
 		{
@@ -61,10 +88,15 @@ public class LoginDAO
 				con.close();
 		}
 
-		return status;  
+		return user_id	;  
 
 	}  
 	
+	/**
+	 * @param loginbean
+	 * @return status
+	 * @ it saves the user data into database
+	 */
 	public static int save(LoginBean loginbean)
 	{
 		int status=0;
@@ -91,6 +123,11 @@ public class LoginDAO
 		return status;
 	}
 	
+	/**
+	 * @param loginbeanObject
+	 * @return status
+	 * @ it saves the book datails into database
+	 */
 	public static int saveBookData(LoginBean loginbean)
 	{
 		int status = 0;
@@ -98,12 +135,13 @@ public class LoginDAO
 		{
 			Connection connection = LoginDAO.getConnection();
 			PreparedStatement ps = connection.prepareStatement("insert into book_details"
-					+ "(book_title,author,category,price,name)values(?,?,?,?,?)");
+					+ "(book_title,author,category,price,name,user_id)values(?,?,?,?,?,?)");
 			ps.setString(1, loginbean.getBook_title());
 			ps.setString(2,loginbean.getAuthor());
 			ps.setString(3,loginbean.getCategory());
 			ps.setInt(4,loginbean.getPrice());
 			ps.setString(5,loginbean.getEmail());
+			ps.setInt(6, loginbean.getUser_id());
 			
 			status = ps.executeUpdate();
 			connection.close();
@@ -117,6 +155,11 @@ public class LoginDAO
 		return status;
 	}
 	
+	/**
+	 * @param input id
+	 * @return loginBeanObject
+	 * @ It fetch the book datails according by its id    
+	 */
 	public static LoginBean getBookByID(int id)
 	{
 		LoginBean loginBean = new LoginBean();
@@ -125,12 +168,13 @@ public class LoginDAO
 		{
 			Connection con = LoginDAO.getConnection();
 			PreparedStatement ps = con.prepareStatement("select * from book_details"
-					+ " where id = ? ");
+					+ " where book_id=? ");
 			ps.setInt(1,id);
+			
 			ResultSet rs=ps.executeQuery();
 			if(rs.next())
 			{
-				loginBean.setId(rs.getInt(1));
+				loginBean.setBook_id(rs.getInt(1));
 				loginBean.setBook_title(rs.getString(2));
 				loginBean.setAuthor(rs.getString(3));
 				loginBean.setCategory(rs.getString(4));
@@ -146,19 +190,26 @@ public class LoginDAO
 	}
 	
 	
-	public static List<LoginBean> getAllBooks(String category)
+	/**
+	 * @param input category
+	 * @return listObject
+	 * @ It fetch the book details according to its id.
+	 */
+	public static List<LoginBean> getAllBooks(String category,int user_id)
 	{
 		List<LoginBean> list=new ArrayList<LoginBean>();
 
 		try
-		{
+		{    
+			
 			Connection con=LoginDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("select * from book_details where category=?");
+			PreparedStatement ps=con.prepareStatement("select * from book_details where category=? and user_id=?");
 		    ps.setString(1,category);
+		    ps.setInt(2, user_id);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()){
 			     LoginBean loginBean = new LoginBean();
-			     loginBean.setId(rs.getInt(1));
+			     loginBean.setBook_id(rs.getInt(1));
 			     loginBean.setBook_title(rs.getString(2));
 			     loginBean.setAuthor(rs.getString(3));
 			     loginBean.setCategory(rs.getString(4));
@@ -171,13 +222,18 @@ public class LoginDAO
 		return list;
 	}
 	
+	/**
+	 * @param input id
+	 * @return status
+	 * @ It delete the book details according to its id
+	 */
 	public static int delete (int id)
 	{
 		int status = 0;
 		try
 		{
 			Connection con=LoginDAO.getConnection();
-			PreparedStatement ps=con.prepareStatement("delete from book_details where id=?");
+			PreparedStatement ps=con.prepareStatement("delete from book_details where book_id=?");
 			ps.setInt(1,id);
 			status=ps.executeUpdate();
 		}
@@ -189,21 +245,26 @@ public class LoginDAO
 		
 	}
 	
+	/**
+	 * @param loginBeanObject
+	 * @return status
+	 * @ It update the book details into database
+	 */
 	public static int update(LoginBean loginBean)
 	{
-		System.out.println("book id " + loginBean.getId());
+		System.out.println("book id " + loginBean.getBook_id());
 		int status=0;
 		try
 		{
 			Connection con=LoginDAO.getConnection();
 			PreparedStatement preparetatement=con.prepareStatement
-					("update book_details set book_title=?,author=?,category=?,price=? where id=?");
+					("update book_details set book_title=?,author=?,category=?,price=? where book_id=?");
 			System.out.println("booktilte"+loginBean.getAuthor());
 			preparetatement.setString(1,loginBean. getBook_title());
 			preparetatement.setString(2,loginBean.getAuthor());
 			preparetatement.setString(3,loginBean.getCategory());
 			preparetatement.setInt(4,loginBean.getPrice());
-			preparetatement.setInt(5,loginBean.getId());
+			preparetatement.setInt(5,loginBean.getBook_id());
 			
 			status = preparetatement.executeUpdate();
 			
