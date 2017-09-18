@@ -12,6 +12,16 @@
 .btn btn-primary btn-lg {
 	margin-left: 10px;;
 }
+
+#myModal
+{
+    margin-top: 200px;
+}
+
+#scienceModal
+{
+  margin-top: 100px;
+}
 </style>
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
@@ -88,7 +98,7 @@
 	<h2></h2>
 	<!-- Trigger the modal with a button -->
 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
-		data-target="#myModal">Add New Book</button>
+		data-target="#myModal" id="">Add New Book</button>
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
@@ -96,7 +106,7 @@
 
 			<!-- Modal content-->
 			<div class="modal-content">
-				<form action="InsertBookData" name="addNewBook" method="post">
+				<form action="InsertBookData" name="addNewBook" method="post" >
 					<div class="modal-header">
 
 						<h4 class="modal-title">Add Book</h4>

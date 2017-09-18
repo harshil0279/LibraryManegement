@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +27,9 @@ public class ViewServlet extends HttpServlet
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	/* (non-Javadoc)
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException 
 	{
@@ -36,10 +40,13 @@ public class ViewServlet extends HttpServlet
 		response.setContentType("text/html");
 		String category = request.getParameter("category");
 		//int user_id =Integer.parseInt("request.getParameter(user_id1)");
-		PrintWriter printWriter = response.getWriter();
-		printWriter.println("<h1>Books List</h1>");
+		//PrintWriter printWriter = response.getWriter();
+		//printWriter.println("<h1>Books List</h1>");
 		List<LoginBean> list = LoginDAO.getAllBooks(category,user_id);
-		printWriter.print("<table border='1' width='100%'");
+		request.setAttribute("list", list);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ViewBooks.jsp");
+		dispatcher.forward(request, response);
+		/*printWriter.print("<table border='1' width='100%'");
 		printWriter.print("<tr><th>Book_title</th><th>Author</th><th>Category</th><th>Price</th></tr>");
 
 		for(LoginBean loginBean:list)
@@ -55,7 +62,7 @@ public class ViewServlet extends HttpServlet
 			
 		}
 		printWriter.print("</table>");
-		printWriter.close();
+		printWriter.close()*/
 	}
 	
 

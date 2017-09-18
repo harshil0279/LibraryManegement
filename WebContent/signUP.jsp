@@ -147,9 +147,7 @@
 					{
 									alert("Password must be at least 6	 characters long");
 					 		return false;
-					} 
-
-		       
+					} 		       
 		}
 			
 			
