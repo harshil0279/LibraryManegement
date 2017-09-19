@@ -16,6 +16,7 @@
 	<classpathentry kind="lib" path="/home/bridgeit/Downloads/servlet-3_0-final-jar_and_schema.zip"/>
 	<classpathentry kind="lib" path="/home/bridgeit/Downloads/javax.servlet.jsp.jstl-1.2.1.jar.zip"/>
 	<classpathentry kind="lib" path="/home/bridgeit/Downloads/javax.servlet.jsp.jstl-api-1.2.1.jar.zip"/>
-	<classpathentry kind="lib" path="/home/bridgeit/Desktop/jsp-api-1.2.jar(1).zip"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Downloads/jstl.jar"/>
+	<classpathentry kind="lib" path="/home/bridgeit/Downloads/jstl-1.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

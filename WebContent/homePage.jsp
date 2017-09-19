@@ -34,7 +34,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+<script type="text/javascript" src="scripts/book_details.js"></script>
 </head>
 <nav class="navbar navbar-default">
 <div class="container-fluid">
@@ -106,7 +106,7 @@
 
 			<!-- Modal content-->
 			<div class="modal-content">
-				<form action="InsertBookData" name="addNewBook" method="post" >
+				<form action="InsertBookData" name="addNewBook" method="post" onsubmit="return myFunction()">
 					<div class="modal-header">
 
 						<h4 class="modal-title">Add Book</h4>
@@ -134,15 +134,17 @@
 						</div>
 
 						<div class="form-group">
-							<input type="number" class="form-control" name="price"
+							<input type="text" class="form-control"id="price1" name="price"
 								placeholder="Price">
 						</div>
 					</div>
+					
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary btn-sm"
 							data-dismiss="modal">Cancel</button>
-						<input type="submit" class="btn btn-primary btn-sm" value="Save">
+						<input type="submit" class="btn btn-primary btn-sm" value="Save" />
 					</div>
+					</form>
 			</div>
 
 		</div>
@@ -296,15 +298,8 @@ $(document).ready(function(){
 					   
 				   }
 	     });
-	     }
-	     
-		
-		
-	  
-		  
-		
-		
-		
+	     }    	
+		  	  
 	});
  </script>
 </body>

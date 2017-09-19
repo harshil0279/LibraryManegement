@@ -25,15 +25,13 @@
 <tr><th>Book_title</th><th>Author</th><th>Category</th><th>Price</th>  
 </tr>  
 
-<c:forEach items="${list}" var="u"> 
+    <c:forEach items="${list}" var="u"> 
 <tr><td>${u.getBook_title()}</td><td>${u.getAuthor()}</td><td>${u.getCategory()}</td>  
 <td>${u.getPrice()}</td> 
 
-<td><a class='edit-class' href='#' id='EditServlet1?book_id="+
-										 u.getBook_id()+"'>edit</a></td>
+<td><a class='edit-class' href='#' id="EditServlet1?book_id=${u.getBook_id()}">edit</a></td>
 
-<td><a class='delete-class'  href='#' id='DeleteBook?book_id="+
-										 u.getBook_id()+"'>delete</a></td></tr>  
+<td><a class='delete-class'  href='#' id="DeleteBook?book_id=${u.getBook_id()}">delete</a></td></tr>  
 </c:forEach>  
    </table>  
 </body>
