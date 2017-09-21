@@ -3,7 +3,9 @@ package com.bridgelab.model;
 public class LoginBean {
 	private String email, password, name, mobileNumber, gender,book_title,author,category;
 	
-     private int book_id,price,user_id;
+     private int book_id,user_id;
+
+	int price;
 	
 
 	
@@ -24,7 +26,7 @@ public class LoginBean {
 		this.user_id = user_id;
 	}
 
-	public int getPrice() {
+	public 	int getPrice() {
 		return price;
 	}
 
@@ -55,9 +57,6 @@ public class LoginBean {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-	
-
 	
 
 	public String getName() {

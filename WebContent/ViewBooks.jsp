@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="CSS/viewbook.css">
 </head>
 <body>
     
@@ -15,14 +16,14 @@
 <%@ page import="java.util.ArrayList" %>
 
 
-    <h1>Book List</h1>
+    <h1 id="book_list">Book List</h1>
     <%
     List<LoginBean> list = (List<LoginBean>)request.getAttribute("list");
 		request.setAttribute("list",list);
 	%>
 
-     <table border="1" width="100%">  
-<tr><th>Book_title</th><th>Author</th><th>Category</th><th>Price</th>  
+     <table border="0" width="100%">  
+<tr><th>Book_title</th><th>Author</th><th>Category</th><th>Price</th>  <th colspan="2" id="actionbutton">Action</th>
 </tr>  
 
     <c:forEach items="${list}" var="u"> 

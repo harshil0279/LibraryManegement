@@ -1,0 +1,50 @@
+.container-fluid {
+	background-color: pink;
+}
+
+.btn btn-primary btn-lg {
+	margin-left: 10px;;
+}
+
+#myModal
+{
+    margin-top: 200px;
+}
+
+#scienceModal
+{
+  margin-top: 100px;
+}
+#category-body
+{
+	
+	width: 400px;
+	margin-top: 30px;
+	margin-left:400px;
+}
+#category-commerce
+{
+	width: 400px;
+	margin-top: 20px;
+	margin-left:400px;
+}
+#category-arts
+{
+	width: 400px;
+	margin-top: 20px;
+	margin-left:400px;
+}
+#newBook
+{
+	margin-top:150px;
+	margin-left:530px;
+}
+#bookcategory
+{
+	margin-left:400px;
+}
+
+#edit&save_button
+{
+	margin-left:100px;
+}

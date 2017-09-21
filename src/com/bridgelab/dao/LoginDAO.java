@@ -49,13 +49,13 @@ public class LoginDAO
 	 * @throws SQLException
 	 * @ It is used to validate email-id and password of user
 	 */
-	public static int validate(LoginBean bean) 
+	public static int validate(String email,String password) 
 			throws ClassNotFoundException, SQLException
 	{  
-		boolean status=false;  
+		//boolean status=false;  
 		Connection con = null;
 		System.out.println("Inside bean");
-		int user_id= -1;
+	    int user_id= -1;
 		try
 		{  
 			Class.forName(Provider.DRIVER);
@@ -65,9 +65,9 @@ public class LoginDAO
 			PreparedStatement ps=con.prepareStatement(  
 					"select * from use_details where email=? and password=?");
 			
-            System.out.println("Email " + bean.getPassword());
-			ps.setString(1,bean.getEmail());  
-			ps.setString(2, bean.getPassword()); 
+           // System.out.println("Email " + bean.getPassword());
+			ps.setString(1,email);  
+			ps.setString(2, password); 
 			//fetch = rs.getInt("user_id");
 			ResultSet rs=ps.executeQuery();
 			
@@ -77,8 +77,8 @@ public class LoginDAO
 				user_id = rs.getInt("user_id");
 				System.out.println("USER_id is"+user_id);
 				System.out.println("statement executed");
-				status=rs.next();
-				System.out.println("status: "+status);
+				//status=rs.next();
+				//System.out.println("status: "+status);
 			}
 		
 		}

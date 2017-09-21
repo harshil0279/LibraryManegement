@@ -1,6 +1,6 @@
-function myFunction()
+function myFunctionN()
 {
-	var x = document.forms["addNewBook"]["book_title"].value;
+	var x = document.forms["editBooks"]["book_title"].value;
 	var letters = /^[A-Za-z]+$/;  
 
 	if(x == '')
@@ -10,13 +10,11 @@ function myFunction()
 	}
 	else if(!letters.test(x))  
 	{  
-		alert("name contain only characters");  
+		alert("Book Name contain only characters");  
 		return false;  
 	}  
 
-
-
-	var y = document.forms["addNewBook"]["author"].value;
+	var y = document.forms["editBooks"]["author"].value;
 	if (y == "") 
 	{
 		alert("Author Name of book must be filled out");
@@ -28,8 +26,7 @@ function myFunction()
 		return false;  
 	}  
 
-
-	var x = document.forms["addNewBook"]["category"].value;
+	var x = document.forms["editBooks"]["category"].value;
 	console.log("Value of X:"+x);
 	if(x == 'Category')
 	{
@@ -38,18 +35,21 @@ function myFunction()
 		console.log('hiiiii');
 	}	
 
-	var z = document.getElementById("price1").value
-	console.log(z);
-	var reg = /^([1-9][0-9]{,2}(,[0-9]{3})*|[0-9]+)(\.[0-9]{1,9})?$/;
-	if(z == '')
+	var a = document.getElementById("price").value;
+	console.log(a);
+	var reg = /^\d+$/;
+	if(a == '')
 	{
 		alert("please write price");
 		return false;
 	}
-	else if(!reg.test(z)){
+	else if(!reg.test(a)){
 		alert("please write price in number");
 		return false;
 	}
+
+
+
+
+
 }
-
-

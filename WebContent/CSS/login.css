@@ -19,6 +19,7 @@
 {
 	
 	background-color:#00FFFF;	
+	margin-top:20px;
 }
 
 #account-font
@@ -28,16 +29,20 @@
 
 #fpassword
 {
-	font-color:sky blue;
-	margin-top:20px;
+	
+	
+	margin-left:750px;
 	 
 }
 
 #email
 {
-	 margin-top:20px;
+	 margin-top:35px;
 }
-
+#container_fluid
+{
+	margin-left:270px;
+}
 
 
 

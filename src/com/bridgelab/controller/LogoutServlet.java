@@ -24,21 +24,21 @@ import javax.servlet.http.HttpSession;
 public class LogoutServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
-	
-	
+
+
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)
 			throws ServletException,IOException
-			{
-				response.setContentType("text/html");
-				PrintWriter printWriter = response.getWriter();
-				request.getRequestDispatcher("index.jsp").include(request, response);  
-				  HttpSession session=request.getSession();  
-		            session.invalidate();  
-		              
-		            printWriter.print("You are successfully logged out!");  
-		              
-		            printWriter.close();  
-			}
-	    
+	{
+		response.setContentType("text/html");
+		PrintWriter printWriter = response.getWriter();
+		request.getRequestDispatcher("index.jsp").include(request, response);  
+		HttpSession session=request.getSession();  
+		session.invalidate();  
+
+		printWriter.print("You are successfully logged out!");  
+
+		printWriter.close();  
+	}
+
 
 }

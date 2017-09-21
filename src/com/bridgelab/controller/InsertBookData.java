@@ -40,14 +40,14 @@ public class InsertBookData extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		String user_id1=(String)session.getAttribute("user_id");  
-	    int user_id = Integer.parseInt(user_id1);
+		int user_id = Integer.parseInt(user_id1);
 		String book_title = request.getParameter("book_title");
 		String author = request.getParameter("author");
 		String category = request.getParameter("category");
 		String sprice = request.getParameter("price");
 		int price = Integer.parseInt(sprice);
 		String email = (String) session.getAttribute("email");
-      //  int user_id = (int) session.getAttribute("user_id");
+		//  int user_id = (int) session.getAttribute("user_id");
 		LoginBean loginbean = new LoginBean();
 
 		loginbean.setBook_title(book_title);
@@ -55,22 +55,48 @@ public class InsertBookData extends HttpServlet {
 		loginbean.setCategory(category);
 		loginbean.setPrice(price);
 		loginbean.setEmail(email);
-        loginbean.setUser_id(user_id);
+		loginbean.setUser_id(user_id);
+		String price1 = Integer.toString(price);
 
-		LoginDAO.status = LoginDAO.saveBookData(loginbean);
+		if(!book_title.matches("[a-zA-Z]+"))
+		{
+			System.out.println("Book name contains only characters");
+			response.sendRedirect("homePage.jsp");
+		}
+		else if(!author.matches("[a-zA-Z]+"))
+		{
+			System.out.println("Author name contains only characters");
+			response.sendRedirect("homePage.jsp");
+		}
+		else if(category == null)
+		{
+			System.out.println("please select a category");
+			response.sendRedirect("homePage.jsp");
+		}
+		
+		
+		//String price1 = Integer.toString(price);
+		else if(price1.matches("[a-zA-Z]+"))
+		{
+			System.out.println("please write price in numbers");
+			response.sendRedirect("homePage.jsp");
+			
+		}
+		else
+		{
+
+			LoginDAO.status = LoginDAO.saveBookData(loginbean);
+		}
 		if(LoginDAO.status > 0)
 		{	
 			out.print("<p>Record Saved Successfully</p>");
-		    response.sendRedirect("homePage.jsp");
+			response.sendRedirect("homePage.jsp");
 
 		}
 		else
 		{
 			out.println("Sorry unable to save record");
 		}
-
-
-
 
 	}
 

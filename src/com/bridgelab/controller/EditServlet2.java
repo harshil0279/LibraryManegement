@@ -51,7 +51,32 @@ public class EditServlet2 extends HttpServlet {
 		loginBean.setCategory(category);
 		loginBean.setPrice(sprice);
 		loginBean.setBook_id(id);
+		//int price1 = Integer.parseInt("sprice");
+		String price2 = Integer.toString(sprice);
+
 		System.out.println("Starting update method");
+		
+		if(!book_title.matches("[a-zA-Z]+"))
+		{
+			System.out.println("Book name contains only characters");
+			//response.sendRedirect("homePage.jsp");
+		}
+		else if(!author.matches("[a-zA-Z]+"))
+		{
+			System.out.println("Author name contains only characters");
+			//response.sendRedirect("homePage.jsp");
+		}
+		else if(category == null)
+		{
+			System.out.println("please select a category");
+			//response.sendRedirect("homePage.jsp");
+		}
+		else if(price.matches("[a-zA-Z]+"))
+		{
+			System.out.println("please write price in numbers");
+			//	response.sendRedirect("homePage.jsp");
+			
+		}
 		int status = LoginDAO.update(loginBean);
 		if(status > 0)
 		{

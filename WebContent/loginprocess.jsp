@@ -1,4 +1,4 @@
-
+<%-- 
 <%@page import="com.bridgelab.dao.LoginDAO"%>
 <jsp:useBean id="obj" class="com.bridgelab.model.LoginBean" />
 
@@ -21,3 +21,4 @@
 <%
 	}
 %> 
+ --%>
