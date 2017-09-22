@@ -39,10 +39,10 @@ public class EditServlet2 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String sid = request.getParameter("id");
 		int id = Integer.parseInt(sid);
-		String book_title = request.getParameter("book_title");
-		String author = request.getParameter("author");
-		String category = request.getParameter("category");
-		String price = request.getParameter("price");
+		String book_title = request.getParameter("book_title1");
+		String author = request.getParameter("author1");
+		String category = request.getParameter("category1");
+		String price = request.getParameter("price2");
 		int sprice = Integer.parseInt(price);
 		
 		LoginBean loginBean = new LoginBean();
@@ -71,7 +71,7 @@ public class EditServlet2 extends HttpServlet {
 			System.out.println("please select a category");
 			//response.sendRedirect("homePage.jsp");
 		}
-		else if(price.matches("[a-zA-Z]+"))
+		else if(price2.matches("[a-zA-Z]+"))
 		{
 			System.out.println("please write price in numbers");
 			//	response.sendRedirect("homePage.jsp");

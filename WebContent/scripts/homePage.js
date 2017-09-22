@@ -71,10 +71,12 @@ $(document).ready(function(){
 		 
 		//function to edit the data
 	     function refreshClickEvent() { 
+	    	 console.log("caslled");
 
 			$("body .edit-class").off();
 
 			$("body .edit-class").on("click", function() {
+				console.log("woah");
 				var id = $(this).attr('id');
 			
 				id = id.replace('EditServlet1?book_id=','');
@@ -91,6 +93,8 @@ $(document).ready(function(){
 						
 					}
 				});
+				
+				 refreshClickEvent() 
 			});
 			
 			
